@@ -14,6 +14,15 @@ def emotion_detector(text_to_analyse):
     fear_score = emotion['fear']
     joy_score = emotion['joy']
     sadness_score = emotion['sadness']
+    dominant_emotion = 'anger'
+    if emotion[dominant_emotion] < disgust_score:
+        dominant_emotion = 'disgust'
+    if emotion[dominant_emotion] < fear_score:
+        dominant_emotion = 'fear'
+    if emotion[dominant_emotion] < joy_score:
+        dominant_emotion = 'joy'
+    if emotion[dominant_emotion] < sadness_score:
+        dominant_emotion = 'sadness'
 
     return {'anger': anger_score, 
             'disgust': disgust_score,
